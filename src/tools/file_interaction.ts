@@ -58,7 +58,7 @@ let getValidFiles = async () => {
             let fullRules = []; 
 
             for(var j = 0; j < rules.length; j++){
-                if(rules[j].length > 0){
+                if(rules[j].length > 0 && !rules[j].startsWith("#")){
                     fullRules.push(path.join(path.dirname(gitignores[i]), rules[j]));
                 }
             }

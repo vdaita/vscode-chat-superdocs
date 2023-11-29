@@ -180,22 +180,11 @@ export class SuperdocsAgent {
     }
 
     async loadAgent(){
-        const fileTree = await buildTreeYaml();
-        console.log("File Tree: ", fileTree);
-
         this.executor = await initializeAgentExecutorWithOptions(this.generateTools(), this.model, {
             agentType: "openai-functions",
             agentArgs: {
                 prefix: `
-                Files in the user's current project: 
-
-                \n\n
-
-                ${fileTree}
-
-                \n \n
-
-                You are a helpful programming assistant that operates in the editor of the user.
+                You are a helpful and skilled programming assistant that operates in the editor of the user.
                 You should use code snippets when explaining how to write code in-editor.
 
                 Find ways to solve the task step by step if you need to. Explain your plan.
